@@ -1,0 +1,784 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+   <!-- font awesome icon links -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- google font link -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+                                             <!--  npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch-->
+
+  <title>Amazon Clone</title>
+</head>
+<body class="p-0 m-0 box-border font-[Outfit]">
+                   <!-- Header -->
+  <header class="bg-black w-[100%]  min-h-[60px] pt-[15px] flex items-center flex-wrap fixed">
+    <div class="w-full flex items-center px-[10px] ">
+               <!-- logo image  -->
+      <a><img class="w-[120px]  h-[50px] h-[40px] ml-[8px]  hoverborders"src="Images/Images/amazon_logo.png  " alt="Logo-image"></a>
+                   <!-- location div -->
+      <div id="locationBtn" class="w-[100px]  h-[50px] text-white ml-[15px]  leading-tight gap-1  hoverborders flex items-center cursor-pointer">
+        <i class="fa-solid fa-location-dot relative top-[7px]"></i>
+        <p class="translatedText text-[14px] ">Deliver To<br><span id="selectLocation" class="text-[14px]  font-bold">Pakistan</span></p>
+      
+      </div>
+                       <!-- Category selection -->
+      <div class="flex items-center bg-gray-300 black text-gray-800 ml-[15px] p-[10px] rounded-[3px_0px_0px_3px]">
+        <p class="translatedText ">All</p>
+        <i class="fa-solid fa-caret-down"></i>
+      </div>
+                                           <!-- search input -->
+     <input type="text" placeholder="Search Amazon" class="flex flex-1 items-center bg-white p-[10px] focus:outline-none">
+     <button class="w-[40px] bg-[#f3a847] p-[10px] rounded-[0_3px_3px_0]">
+       <i class="fa-solid fa-magnifying-glass"></i>
+     </button>
+             <!-- Language selector -->
+     <div class="p-[5px] hoverborders  flex items-center text-white ml-[20px] ">
+       <img id="lanflag" class="w-[25px]" src= "https://flagcdn.com/w80/us.png">
+       <select id="lanSelect" class="w-[100px] h-[30px] bg-black text-white border-none focus:outline-none  [&::-webkit-scrollbar]:w-2
+          [&::-webkit-scrollbar-track]:bg-slate-100
+               [&::-webkit-scrollbar-thumb]:rounded-full
+               [&::-webkit-scrollbar-thumb]:bg-slate-300
+              hover:[&::-webkit-scrollbar-thumb]:bg-slate-400">
+              <option value="English">English</option>
+              
+       </select>
+
+       
+     </div>
+                  <!-- Sign in -->
+     <div class="sign-in-btn w-[130px] h-[50px] hoverborders p-[5px] flex items-center text-white ml-[20px] leading-tight">
+       <p class="translatedText text-[14px] ">Hello,sign in<br><span class=" font-bold">Account & Lists </span></p> 
+       <i class="fa-solid fa-caret-down text-gray-500 text-[15px] relative top-[10px]"></i>
+     </div>
+                                  <!-- returns and order -->
+     <div class="p-[5px] hoverborders flex items-center text-white ml-[20px] leading-tight">
+       <p class="translatedText text-[14px]">Return<br><span class="font-bold">& Orders</span></p> 
+     </div>
+                        <!-- cart icon -->
+     <div class="p-[5px] mr-[8px] hoverborders flex items-center text-white ml-[20px] ">
+       <img class="w-[35px]" src="Images/Images/cart_icon.png">
+       <h3 class="text-[14px] font-bold">Cart</h3>
+     </div>
+    </div>
+                                  <!-- second navbar -->
+    <nav class="w-[100%] h-auto mt-[5px] bg-[#232f3e] text-white   md:font-800 font-500 p-[5px]">
+      <ul class=" flex gap-4   whitespace-nowrap ">
+
+       <li class="hoverborders">
+        <a href="#">
+          <i class="fa-solid fa-bars"></i> All
+        </a>
+       </li>
+
+       <li class="hoverborders p-[1px]" ><a href="#Deals">Today's Deals</a></li">
+       <li class="hoverborders p-[1px]" ><a href="#Service">Customer Services</a></li >
+       <li class="hoverborders p-[1px]" ><a href="#Vedios">Prime Videos</a></li>
+       <li class="hoverborders p-[1px]" ><a href="#giftCards">Gift Cards</a></li >
+       <li class="hoverborders p-[1px]" ><a href="#Sell">Sell</a></li>
+       <li class="hoverborders p-[1px]" ><a href="#Registry">Registry</a></li>
+
+      </ul>
+    </nav>
+  </header> 
+                           
+  <section>
+    <div   class="w-[100%] h-auto relative top-[105px]  " >
+      <a href="#" id="pre"><i class="fa-solid fa-chevron-left text-black text-3xl hoverborders py-[20px] px-[5px] absolute top-[150px]  z-1 "></i></a>
+      <a href="#" id="next"><i class="fa-solid fa-chevron-right text-black text-3xl hoverborders py-[20px] px-[5px] absolute top-[150px] right-[0px] z-1 "></i></a>
+      <ul class="flex items-center overflow-x-auto">
+        <li class="heroimgs"><img class=" [mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]" src="Images/Images/header1.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header2.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header3.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header4.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header5.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header6.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header7.jpg"></li>
+        <li class="heroimgs"><img class="[mask-image:linear-gradient(to_bottom,#000000_50%,transparent_100%)]"src="Images/Images/header8.jpg"></li>
+      </ul> 
+    </div>
+
+  </section>
+  <section class="" >
+                                         <!-- 1st Row -->
+                                  
+    <div class="w-full h-auto grid grid-flow-col justify-evenly items-center p-[20px] bg-gray-100 gap-[10px]">
+                                  <!-- Row1 box1 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Get Your game on</h2>
+        <img class="w-full h-[300px] mt-[10px]" src="Images/Images/box1-4.jpg">
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">Shop Gaming</p>
+      </div> 
+                                  <!-- Row1 box2 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-have for every student</h2>
+        <img class="w-full h-[270px] mt-[10px]" src="Images/Images/box3-1.jpg">
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">Shop Back to School</p>
+      </div> 
+                                <!-- Row1 box3 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Shop Fashion for Less</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/box2-4.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-1.jpg" >
+             <p class="translatedText  text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-2.jpg" >
+            <p class="translatedText  text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-5.jpg" >
+             <p class="translatedText  text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+       
+                                      <!-- Row1 box4 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-Have School Supplie</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/school1.jpg" >
+             <p class="translatedText text-[12px]">Backpacks</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/school2.jpg" >
+             <p class="translatedText text-[12px]">Electronic</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/school3.jpg" >
+             <p class="translatedText text-[12px]">Staionary</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-5.jpg" >
+             <p class="translatedText text-[12px]">Fashion</p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      </div>  
+    </div>
+                          <!-- Second Row -->
+    <div class="w-full h-auto grid grid-flow-col justify-evenly items-center p-[20px] bg-gray-100 gap-[10px]">
+                                         <!-- Row2 box1 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-Have School Supplie</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-3 gap-x-[5px]">
+          <div  class="col-span-full ">
+             <img class="w-[250px] h-[120px]"  src="Images/Images/kitchen1.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+                                
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen2.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen3.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen4.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div> 
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>     
+      </div>
+      
+                                              <!-- Row2 box2 -->
+        <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-Have Shoes</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-3" gap-x-[5px]>
+          <div class="col-span-full px-[25px]">
+             <img class="w-[200px] h-[120px] "  src="Images/Images/product5-1.jpg" >
+             <p class="translatedText text-[12px] ">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-10.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-12.jpg" >
+             <p class="translatedText text-[12px]">socks under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-11.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+      
+                          <!-- Row2 box3-->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Shop Fashion for Less</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/box2-4.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-1.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-2.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-5.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+                                   
+                          <!-- Row2 box4 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Easy for Elevated Space</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room1.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room2.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room3.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room4.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>  
+    </div>
+                                     <!-- Row3  scroll -->
+    <div class=" w-full h-auto  p-[10px] bg-gray-100 gap-[10px] "> 
+      <h2 class="text-[21px] font-bold mb-[10px]">Best Seller Daily Rotuine Products</h2> 
+      <div class="productDiv w-full flex flex-row justify-evenly items-center overflow-x-auto [scrollbar-width:none]" >
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-1.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-2.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-3.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-4.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-5.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-6.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-7.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-8.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-9.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product3-10.jpg" alt="productsImg">
+      </div>
+    </div> 
+                            <!-- Row4 scroll -->
+    <div class=" w-full h-auto  p-[10px] bg-gray-100 gap-[10px] ">
+      <h2 class="text-[21px] font-bold mb-[10px]">Child Dresses And Toys   </h2> 
+      <div class="productDiv w-full flex flex-row justify-evenly items-center overflow-x-auto [scrollbar-width:none] " >
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-1.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-2.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-3.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-4.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-5.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-6.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-7.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-8.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-9.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product2-10.jpg" alt="productsImg">
+      </div>
+    </div>
+                            <!-- Row  5th-->
+    <div class="w-full h-auto grid grid-flow-col justify-evenly items-center p-[20px] bg-gray-100 gap-[10px]">
+                      <!-- row5 box1 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-Have School Supplie</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-3 gap-x-[5px]">
+          <div  class="col-span-full ">
+             <img class="w-[250px] h-[120px]"  src="Images/Images/kitchen1.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen2.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen3.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen4.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+                                       <!-- row5 box2 -->
+        <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-Have Shoes</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-3" gap-x-[5px]>
+          <div class="col-span-full px-[25px]">
+             <img class="w-[200px] h-[120px] "  src="Images/Images/product5-1.jpg" >
+             <p class="translatedText text-[12px] ">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-10.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-12.jpg" >
+             <p class="translatedText text-[12px]">socks under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-11.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+      
+                              <!-- row 5 box3 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Shop Fashion for Less</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/box2-4.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-1.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-2.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-5.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      </div>
+                                     <!-- row5 box4 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Easy for Elevated Space</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room1.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room2.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room3.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room4.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      </div>
+    </div>                 
+      <!-- 6th  row -->
+    <div class="w-full h-auto grid grid-flow-col justify-evenly items-center p-[20px] bg-gray-100 gap-[10px]">
+                      <!-- row6 box1 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Kitchen Appliances</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-3 gap-x-[5px]">
+          <div  class="col-span-full ">
+             <img class="w-[250px] h-[120px]"  src="Images/Images/kitchen1.jpg" >
+             <p class="translatedText text-[12px]">Presure Coooker</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen2.jpg" >
+             <p class="translatedText text-[12px]">Coffee Maker</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen3.jpg" >
+             <p class="translatedText text-[12px]">Crockery Set</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/kitchen4.jpg" >
+             <p class="translatedText text-[12px]">Kettele</p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+                                       <!-- row6 box2 -->
+        <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Must-Have Shoes</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-3" gap-x-[5px]>
+          <div class="col-span-full px-[25px]">
+             <img class="w-[200px] h-[120px] "  src="Images/Images/product5-1.jpg" >
+             <p class="translatedText text-[12px] ">under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-10.jpg" >
+             <p class="translatedText text-[12px]">under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-12.jpg" >
+             <p class="translatedText text-[12px]">socks under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product5-11.jpg" >
+             <p class="translatedText text-[12px]">under <span class="symbol">$</span><span class="amount">20</span></p>
+          </div>
+
+          
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      
+      </div>
+      
+                              <!-- row 6 box3 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Shop Fashion for Less</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/box2-4.jpg" >
+             <p class="translatedText text-[12px]">Shirts under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-1.jpg" >
+             <p class="translatedText text-[12px]">Sweaters under <span class="symbol">$</span><span class="amount">25</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-2.jpg" >
+             <p class="translatedText text-[12px]">Child Dress under <span class="symbol">$</span><span class="amount">12</span></p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/product2-5.jpg" >
+             <p class="translatedText text-[12px]">Winter Dress under <span class="symbol">$</span><span class="amount">10</span></p>
+          </div>
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      </div>
+                                     <!-- row6 box4 -->
+      <div class=" w-[300px] h-[400px] bg-white py-[20px] px-[20px] ">
+        <h2 class="text-[21px] font-bold">Easy for Elevated Space</h2>
+        <div class="w-full h-[300px] mt-[10px] grid grid-cols-2">
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room1.jpg" >
+             <p class="translatedText text-[12px]">Basket</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room2.jpg" >
+             <p class="translatedText text-[12px]">Table</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room3.jpg" >
+             <p class="translatedText text-[12px]">Chair</p>
+          </div>
+          <div>
+             <img class="w-[120px] h-[120px]"  src="Images/Images/room4.jpg" >
+             <p class="translatedText text-[12px]">Book shelf</p>
+          </div>
+        </div>
+        <p class="translatedText text-[13px] mt-[10px] text-[#2162a1] hover:text-black">See all Deals</p>
+      </div> 
+    </div>  
+                <!-- Row 7 scroll -->
+      <div class=" w-full h-auto  p-[10px] bg-gray-100 gap-[10px] ">
+      <h2 class="text-[21px] font-bold mb-[10px]">Story Books For Kids   </h2> 
+      <div class="productDiv w-full flex flex-row gap-[5px] justify-evenly items-center overflow-x-auto [scrollbar-width:none] " >
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-1.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-2.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-3.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-4.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-5.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-6.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-7.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-8.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-9.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product4-10.jpg" alt="productsImg">
+      </div>
+    </div>
+    
+                <!-- Row 8 scroll -->
+    <div class=" w-full h-auto  p-[10px] bg-gray-100 gap-[10px] ">
+      <h2 class="text-[21px] font-bold mb-[10px]">Dresses & shoes For Mans  </h2> 
+      <div class="productDiv w-full flex flex-row gap-[5px] justify-evenly items-center overflow-x-auto [scrollbar-width:none] " >
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-9.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-2.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-3.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-4.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-5.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-6.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-7.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-8.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-1.jpg" alt="productsImg">
+        <img class="w-[230px] h-[200px]" src="Images/Images/product5-10.jpg" alt="productsImg">
+      </div>
+      
+    </div>
+                <!-- Row 9 scroll -->
+    <div class=" w-full h-auto  p-[10px] bg-gray-100 gap-[10px] ">
+      <h2 class="text-[21px] font-bold mb-[10px]">Deals Under <span class="symbol">$</span><span class="amount">25</span>  </h2> 
+      <div class="productDiv w-full flex flex-row gap-[5px] justify-evenly items-center overflow-x-auto [scrollbar-width:none] " >
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product4-5.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product3-5.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product5-5.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product4-4.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product2-1.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product1-5.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+         <div class="shrink-0">
+           <img class="w-[187px] h-[200px]" src="Images/Images/product4-6.jpg" alt="productsImg">
+           <p class="translatedText text-[13px] text-red-500 mt-2"><span class="bg-red-500 text-white p-1 ">27% off</span> Deal</p>
+           <p class="translatedText text-gray-500 text-[13px] mt-1"><span class="symbol">$</span><span class="amount"> 14.99</span> List Price: <span class="symbol">$</span><span class="amount">20.99</span></p>
+           <p class="translatedText text-gray-800 text-[16px] ">This product is best for you.</p>
+         </div>
+        
+      
+    </div>
+    <hr class="mt-[20px] mb-[20px] border-gray-400">
+                                           <!-- Personalized Recommendations -->
+    <div class="flex flex-col justify-center items-center">
+                                  
+      <h1 class="text-[25px] font-bold"> See Personalized Recommendations</h1>
+      <button class=" sign-in-btn bg-yellow-400 w-[150px] h-[40px] text-black px-[20px] py-[10px] mt-[10px] rounded-[20px]  hover:bg-yellow-500">Sign In</button>
+      <p class="translatedText text-[11px] mt-2">New Customer?<span class="text-[#2162a1] underline"> Start Here</span></p>
+    </div>
+    <hr class="mt-[20px] mb-[20px] border-gray-400">
+    
+  </section> 
+  <div class="hidden fixed inset-0 bg-black/50 z-40" id="locationOverlay"></div>
+                                        <!-- location box -->
+  <section id="location" class=" hidden w-[400px] h-[400px] bg-white  absolute top-[110px] left-[420px] rounded-[20px] z-50 flex flex-col justify-start items-center" id="locationDiv">
+    <div class="w-full h-[50px] bg-gray-200 rounded-t-[20px] p-[10px] px-[20px] flex flex-row justify-between items-center border-b border-gray-400">
+      <h1 class="text-[18px] text-block font-bold ">Choose Yor Location</h1>
+      <i class="fa-solid fa-xmark cursor-pointer hover:text-gray-700" id="closeBtn"></i>
+    </div>
+    <p class="translatedText text-[13px] text-[#565959] mt-[15px] px-[20px]">Delivery options and delivery speeds may very for different locations</p>
+    <button  class=" sign-in-btn bg-yellow-300 w-[80%] h-[30px] text-[16px] text-black px-[20px] py-[10px] mt-[10px] rounded-[20px] flex justify-center items-center hover:opacity-[0.9]">Sign in to see your address</button>
+    <div class="px-[20px] w-full flex flex-row justify-center items-center mt-[10px]" >
+      <hr class="w-[30%] border-gray-300 mt-[20px] mb-[20px] mr-[5px]">
+      <p class="translatedText text-[12px] text-[#565959]"> or enter US zip code </p>    
+      <hr class="w-[30%] border-gray-300 mt-[20px] mb-[20px] ml-[5px]"> 
+    </div>
+    <div class="px-[20px] w-full flex flex-row justify-start items-center gap-[5px] mt-[10px]">
+      <input type="text" class="w-[70%] h-[40px] text-[16px] px-[10px] py-[5px]  border border-gray-400 rounded-[5px]">
+      <button class=" w-[25%] h-[35px] text-[16px] text-black px-[20px] py-[10px]  rounded-[20px] flex justify-center items-center border border-gray-400 hover:opacity-[0.9]" id="applyBtn">Apply</button>
+    </div>
+    <div class="px-[20px] w-full flex flex-row justify-center items-center mt-[10px]" >
+      <hr class="w-[30%] border-gray-300 mt-[20px] mb-[20px] mr-[5px]">
+      <p class="translatedText text-[12px] text-[#565959]"> or ship outside the US </p>    
+      <hr class="w-[30%] border-gray-300 mt-[20px] mb-[20px] ml-[5px]"> 
+    </div>
+                                      <!-- location dropdown -->
+    <div class="w-[80%] relative" id="countryDropdown">
+
+    <!-- Dropdown button -->
+     <button
+        id="countryBtn"
+        class="w-full h-[40px] px-[10px] border border-gray-400 rounded-[5px] bg-white flex justify-between items-center"
+     >
+        <span id="selectedCountry">Select Country</span>
+
+        <i id="countryArrow" class="fa-solid fa-caret-down"></i>
+     </button>
+
+    <!-- Dropdown menu -->
+     <div
+       id="countryMenu"
+       class="hidden absolute bottom-[45px] left-0 w-full bg-white border border-gray-300 rounded-[5px] z-50"
+     >
+
+        <!-- Search only appears when dropdown opens -->
+       
+
+        <!-- Countries will come here -->
+        <div
+            id="countryList"
+            class="max-h-[180px] overflow-y-auto"
+        ></div>
+
+      </div>
+
+    </div>
+  </section>
+                               <!-- sign in section -->
+  <section id="signIn" class=" hidden w-full h-[100vh] bg-white fixed inset-0 z-60 flex flex-col justify-center items-center gap-[10px]">
+    <i class="fa-solid fa-xmark absolute top-2 right-1 text-[25px] cursor-pointer" id="closeSignIn"></i>
+
+    <img class="w-[100px] h-[50px] mt-[20px]" src="Images/Images/amazon_logo_dark.png" alt="logo-Img">
+    <div class="w-[350px] h-[400px] bg-white border border-gray-400 rounded-[20px] flex flex-col justify-start px-[20px] gap-[10px] pb-[30px] ">
+      <h1 class="text-[25px] font-medium mt-[20px]">Sign in or create account</h1>
+      <p class="translatedText text-[13px] text-black font-bold justify-start mt-[8px]  ">Enter mobile number or email</p>
+      <input type="email" class="w-[100%] h-[30px] text-[16px] px-[10px] py-[5px]  border border-gray-400 rounded-[5px]">
+      <button class="bg-yellow-300 w-[100%] h-[30px] text-[16px] text-black px-[20px] py-[10px] mt-[10px] rounded-[20px] flex justify-center items-center hover:opacity-[0.9]" id="sign in">Continue</button>
+      <p class="translatedText text-[13px] text-black  justify-start mt-[8px]  ">By continuing, you agree to Amazon's <span class="text-[#2162a1] underline cursor-pointer hover:text-black">Conditions of Use</span> and <span class="text-[#2162a1] underline cursor-pointer hover:text-black">Privacy Notice </span>.</p>
+      <p class="translatedText text-[#2162a1] text-[14px] underline cursor-pointer hover:text-black">Need Help?</p>
+      <hr class="mt-[20px] mb-[10px] border-gray-400">
+      <h3 class="text-[14px] font-bold">Buying for work? </h3>
+      <p class="translatedText text-[#2162a1] text-[14px]  cursor-pointer hover:underline hover:text-black">Create a free business account</p>
+    </div>
+    <hr class="mt-[20px] mb-[10pxpx] border-1 border-gray-400 w-full">
+    <div class="flex flex-row justify-center items-center gap-[10px]">
+      <p class="translatedText text-[#2162a1] text-[14px] hover:underline cursor-pointer hover:text-black" >Condition of use</p>
+      <p class="translatedText text-[#2162a1] text-[14px] hover:underline cursor-pointer hover:text-black" >Privacy Notice</p>
+      <p class="translatedText text-[#2162a1] text-[14px] hover:underline cursor-pointer hover:text-black" >Help</p>
+    </div>
+    <p class="translatedText text-[12px] text-[#565959] mb-[20px]">© 1996-2026, Amazon.com, Inc. or its affiliates</p>
+    
+  </section>
+                                            <!-- Currency converter -->
+
+
+          <!-- Back to top Button -->
+  <div>
+   <button id="backToTop" class="bg-[#37475A] w-full h-[50px] text-white px-[20px] py-[10px] mt-[10px]   hover:opacity-[0.9]">Back to top</button>
+  </div>
+
+                                 <!-- Footer Section -->
+  <footer>
+   <div class="w-full bg-[#232F3E] flex flex-row  gap-[5px]  px-[100px] justify-evenly  p-[20px]">
+    <div class="text-white text-[14px] leading-[30px] ">
+      <h2 class="font-bold text-[16px] mb-[10px]">Get to Know Us</h2>
+      <p class="translatedText hover:underline">Careers</p>
+      <p class="translatedText hover:underline">Blog</p>
+      <p class="translatedText hover:underline">About Amazon</p>
+      <p class="translatedText hover:underline">Investor Relations</p>
+      <p class="translatedText hover:underline">Amazon Devices</p>
+    </div>
+    <div class="text-white text-[14px] leading-[30px] ">
+      <h2 class="font-bold text-[16px] mb-[10px]">Make Money with Us</h2>
+      <p class="translatedText hover:underline">Sell products on Amazon</p>
+      <p class="translatedText hover:underline">Sell on Amazon Business</p>
+      <p class="translatedText hover:underline">Sell apps on Amazon</p>
+      <p class="translatedText hover:underline">Become an Affiliate</p>
+      <p class="translatedText hover:underline">Advertise Your Products</p>
+    </div>
+    <div class="text-white text-[14px] leading-[30px] ">
+      <h2 class="font-bold text-[16px] mb-[10px]">Amazon Payment Products</h2>
+      <p class="translatedText hover:underline">Amazon Business Card</p>
+      <p class="translatedText hover:underline">Shop with Points</p>
+      <p class="translatedText hover:underline">Reload Your Balance</p>
+      <p class="translatedText hover:underline">Amazon Currency Converter</p>
+    </div>
+    <div class="text-white text-[14px] leading-[30px] ">
+      <h2 class="font-bold text-[16px] mb-[10px]">Let Us Help You</h2>
+      <p class="translatedText hover:underline">Your Account</p>
+      <p class="translatedText hover:underline">Your Orders</p>
+      <p class="translatedText hover:underline">Shipping Rates & Policies</p>
+      <p class="translatedText hover:underline">Returns & Replacements</p>
+      <p class="translatedText hover:underline">Manage Your Content and Devices</p>
+    </div>
+
+   </div>
+   <div class=" w-full h-[1px] border-gray-400"></div>
+
+   <div class="w-full bg-[#232F3E] flex flex-row  gap-[5px]  px-[100px] justify-center items-center p-[20px]">
+      <img class="w-[100px] h-[30px] mr-[100px] mt-[5px]"  src="Images/Images/amazon_logo.png" alt="logo-Img">
+      <div class="flex flex-row gap-[5px] justify-center items-center text-white text-[14px] leading-[30px] border border-gray-400 px-[10px] py-[5px] rounded-[5px] hover:bg-gray-600 cursor-pointer">
+        <i class="fa-solid fa-globe"></i>
+        <h3>English</h3>
+        <i class="fa-solid fa-caret-down"></i>
+      </div>
+                   <!-- currency converter div -->
+      <div class="flex flex-row gap-[5px] justify-center items-center text-white text-[14px] leading-[30px] border border-gray-400 px-[10px] py-[5px] rounded-[5px]  cursor-pointer">
+        <div class=" flex items-center gap-[5px]">
+          <p id="fromCurrency">USD</p>
+          <i class="fa-solid fa-arrow-right"></i>
+
+          <select class="bg-[#232F3E] text-white border-none focus:outline-none  [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-slate-300 hover:[&::-webkit-scrollbar-thumb]:bg-slate-400" id="toCurrency"></select>
+            
+        </div>
+        
+        
+      </div>
+      <div class="flex flex-row gap-[5px] justify-center items-center text-white text-[14px] leading-[30px] border border-gray-400 px-[10px] py-[5px] rounded-[5px]  cursor-pointer">
+        <img src="https://flagcdn.com/w320/us.png"  class="w-[30px] h-[20px] pl-[5px]" id="flagImg">
+
+        <!-- <img src="Images/Images/us_flag.png" alt="us-flag" width="20" height="20"> -->
+        <select class="w-[100px] h-[30px] bg-[#232F3E] text-white border-none focus:outline-none  [&::-webkit-scrollbar]:w-2
+          [&::-webkit-scrollbar-track]:bg-slate-100
+               [&::-webkit-scrollbar-thumb]:rounded-full
+               [&::-webkit-scrollbar-thumb]:bg-slate-300
+              hover:[&::-webkit-scrollbar-thumb]:bg-slate-400" id="countryName">
+              <option value="United State">United State </option>
+        </select>
+        
+      </div>
+
+   </div>
+  </footer>
+  
+
+         
+
+
+  <script src="code.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
